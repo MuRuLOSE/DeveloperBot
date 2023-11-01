@@ -9,6 +9,7 @@ from aiogram import Bot, Dispatcher, Router, types
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart
 from aiogram.types import Message
+from aiogram.filters import Command
 # from aiogram.utils.markdown import hbold, hitalic, hcode, hlink, hpre, hstrikethrough, hunderline 
 
 router = Router()
@@ -30,6 +31,14 @@ async def command_start_handler(message: Message) -> None:
         f"<i>only in Russian for now</i>"
     )
 
+@router.message(Command(commands=["source"]))
+async def source_cmd(message: Message) -> None:
+
+    # Please, dont delete this command
+    await message.answer(
+        "<a href='https://github.com/MuRuLOSE/DeveloperBot'>GitHub</a>\n"
+    )
+
 @router.message()
 async def get_query(message: Message) -> None:
     query = lambda x: message.text.lower().startswith(x) 
@@ -44,7 +53,7 @@ async def get_query(message: Message) -> None:
         if not reply:
             await message.reply("Вы не ответили на стикер / сообщение")
 
-    if query("message") or query("сообщение") or query("смс"):
+    if query("message") or query("сообщение") or query("смс") or query("sms"):
         if reply:
             await message.reply(f"Тело сообщения: \n<code>{reply}</code>")
         if not reply:
@@ -55,6 +64,9 @@ async def get_query(message: Message) -> None:
             await message.reply(f"Текст: ```\n{reply.html_text}```",parse_mode="MARKDOWN")
         if not reply:
             await message.reply("Вы не ответили на стикер / сообщение")
+
+    if query("myid"):
+        await message.reply(f"Твой айди: <code>{message.from_user.id}</code>z")
 
         
     
