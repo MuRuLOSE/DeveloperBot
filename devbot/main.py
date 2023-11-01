@@ -1,7 +1,7 @@
 import asyncio
 import logging
 import sys
-from os import getenv
+from os import getenv, path
 from dotenv import load_dotenv
 
 from aiogram import Bot, Dispatcher, Router, types
@@ -11,10 +11,10 @@ from aiogram.filters import CommandStart
 from aiogram.types import Message
 # from aiogram.utils.markdown import hbold, hitalic, hcode, hlink, hpre, hstrikethrough, hunderline 
 
-
 router = Router()
 
 load_dotenv()
+
 TOKEN = getenv("BOT_TOKEN")
 
 # All handlers should be attached to the Router (or Dispatcher)
@@ -69,5 +69,4 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
     asyncio.run(main())
