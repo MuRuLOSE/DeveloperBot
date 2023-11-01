@@ -52,7 +52,9 @@ async def get_query(message: Message) -> None:
     
     if query("text") or query("текст"):
         if reply:
-            await message.reply(f"Текст: <code>{reply.text}</code>")
+            await message.reply(f"Текст: ```\n{reply.html_text}```",parse_mode="MARKDOWN")
+        if not reply:
+            await message.reply("Вы не ответили на стикер / сообщение")
 
         
     
