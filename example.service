@@ -1,0 +1,12 @@
+[Unit]
+Description=Unit for developer bot
+Wants=network.target
+
+[Service]
+Restart=always
+RestartSec=5
+WorkingDirectory=path/developerbot
+ExecStart=/usr/bin/python3 -m devbot
+
+[Install]
+WantedBy=multi-user.target

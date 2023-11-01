@@ -1,0 +1,6 @@
+version = "3"
+
+services:
+    bot:
+        stop_signal: SIGINT
+        restart: unless-stopped
