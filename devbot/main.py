@@ -16,7 +16,6 @@ load_dotenv()
 
 TOKEN = getenv("BOT_TOKEN")
 
-# All handlers should be attached to the Router (or Dispatcher)
 dp = Dispatcher()
 commands = [
     BotCommand(command="/start", description="Перезапустить бота"),
@@ -81,9 +80,7 @@ async def get_query(message: Message) -> None:
     
 
 async def main() -> None:
-    # Initialize Bot instance with a default parse mode which will be passed to all API calls
     bot = Bot(TOKEN, parse_mode=ParseMode.HTML)
-    # And the run events dispatching
     await bot.set_my_commands(commands=commands)
     dp.include_router(router=router)
     await dp.start_polling(bot)
