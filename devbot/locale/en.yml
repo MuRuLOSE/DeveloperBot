@@ -1,0 +1,8 @@
+start: "Hello <b>{}</b>\nI'm an assistant for the developers"
+no-reply: "You didn't reply to the message"
+sticker: "Sticker ID <code>{}</code>"
+no-sticker: "You didn't answer to the sticker"
+sms: "Body of the message: \n<code>{}</code>"
+text: "Text: ```\n{}```"
+myid: "Your id: <code>{}</code>"
+lang_updated: "Your language has been successfully updated! New language {}"
