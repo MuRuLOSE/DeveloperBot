@@ -11,7 +11,7 @@ BASE_DIR = (
 BASE_PATH = Path(BASE_DIR)
 PATH = f"{BASE_PATH}/devbot/"
 
-def get_lang(locale: str) -> str:  # sourcery skip: merge-duplicate-blocks
+def get_lang(locale: str) -> str:    # sourcery skip: merge-duplicate-blocks
     '''
     Function for get language flie
     
@@ -26,10 +26,6 @@ def get_lang(locale: str) -> str:  # sourcery skip: merge-duplicate-blocks
     locale_path = f"{PATH}/locale"
     if locale == "ru":
         with open(f'{locale_path}/ru.yml', 'r') as f:
-            data = yaml.safe_load(f)
-
-    elif locale == "en":
-        with open(f'{locale_path}/en.yml', 'r') as f:
             data = yaml.safe_load(f)
 
     else:
